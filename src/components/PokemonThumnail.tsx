@@ -1,17 +1,25 @@
-import React from "react";
+interface Props {
+    key : number
+    id : number
+    name :string
+    type : string
+    sprite : string
 
-const PokemonThumnail = (id:string = "aaa", name:string="hola", image:any = `https://www.lavanguardia.com/files/og_thumbnail/uploads/2020/06/29/5fa91c5e49c91.jpeg`, type:string ="rock") =>{
+}
+
+const PokemonThumnail = ({key,id,name,type,sprite}:Props) =>{
     return(
-        <div className="thumb-container">
-            <div className="number">
-                <small>#{id}</small>
-            </div>
-            <img src={image} alt={name} />
-            <div className="detail-wrapper">
-                <h3>{name}</h3>
-                <small>Tipo: {type}</small>
-            </div>
+        <div className={`thumb-container ${type}`} key={key}>
+        <div className="number">
+            <small>#{id}</small>
         </div>
+        <img src={sprite} alt={name} />
+        <div className="detail-wrapper">
+            <h3>{name}</h3>
+            <small>Tipo: {type}</small>
+        </div>
+      </div>
+
     )
 }
 
